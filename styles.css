@@ -1,0 +1,58 @@
+.jelly {
+    position:relative;
+    width: 300px; 
+    height: 290px;
+    transform: rotate(5deg); /* Tilt to the right */
+    animation: bobbing 3s infinite ease-in-out; /* Bobbing up and down */
+}
+
+.jelly .head {
+    position:absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    z-index: 2;
+  }
+
+.jelly .tail {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px; /* Adjust to fit the tail image */
+    z-index: 1; /* Ensures the tail is beneath the head */
+    animation: expandContract 2s infinite; /* Add animation */
+  }
+
+body {
+    background-color: rgb(20, 0, 107);
+    display: flex;
+    margin: 0;
+    height:100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bobbing animation for the container */
+@keyframes bobbing {
+    0%, 100% {
+      transform: rotate(5deg) translateY(0); /* Original position */
+    }
+    50% {
+      transform: rotate(5deg) translateY(-100px); /* Move up slightly */
+    }
+  }
+
+/* Animation for expanding and contracting */
+@keyframes expandContract {
+    0%, 100% {
+      transform: translateX(-50%) scaleY(1); /* Normal size */
+    }
+    50% {
+      transform: translateX(-50%) scaleY(1.2); /* Expand vertically */
+    }
+  }
